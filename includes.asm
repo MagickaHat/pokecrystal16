@@ -76,5 +76,5 @@ INCLUDE "constants/16_bit_translation_constants.asm"
 INCLUDE "constants/16_bit_locking_constants.asm" ; MUST come after the translation constants file!
 
 if DEF(_CRYSTAL11_VC)
-INCLUDE "vc/pokecrystal11.constants.asm"
+INCLUDE "vc/pokecrystal.constants.asm"
 endc
