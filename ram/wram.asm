@@ -1514,7 +1514,7 @@ wCurSpecies:: db
 
 wNamedObjectType:: db
 
-	ds 1
+wItemFlags:: db
 
 wJumptableIndex::
 wBattleTowerBattleEnded::
@@ -2160,7 +2160,7 @@ NEXTU
 ; hidden item data
 wHiddenItemData::
 wHiddenItemEvent:: dw
-wHiddenItemID:: db
+wHiddenItemID:: dw
 wHiddenItemDataEnd::
 
 NEXTU
@@ -2689,8 +2689,8 @@ wBaseType2:: db
 wBaseCatchRate:: db
 wBaseExp:: db
 wBaseItems::
-wBaseItem1:: db
-wBaseItem2:: db
+wBaseItem1:: dw
+wBaseItem2:: dw
 wBaseGender:: db
 wBaseUnknown1:: db
 wBaseEggSteps:: db
@@ -2705,8 +2705,6 @@ wCurBaseDataEnd::
 	assert wCurBaseDataEnd - wCurBaseData == BASE_DATA_SIZE
 
 wCurDamage:: dw
-
-	ds 2
 
 wMornEncounterRate::  db
 wDayEncounterRate::   db
@@ -2945,7 +2943,7 @@ endr
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 
-	ds 40
+	ds 4
 
 wMapObjects::
 wPlayerObject:: map_object wPlayer ; player is map object 0
@@ -2959,14 +2957,11 @@ wObjectMasks:: ds NUM_OBJECTS
 wVariableSprites:: ds $100 - SPRITE_VARS
 
 wMapNameSignFlags:: db
-	ds 2
+
 wTimeOfDayPal:: db
-	ds 4
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db
-
-	ds 1
 
 wSecretID:: dw
 wStatusFlags::
@@ -3010,7 +3005,7 @@ wKantoBadges:: flag_array NUM_KANTO_BADGES
 wTMsHMs:: ds NUM_TMS + NUM_HMS
 
 wNumItems:: db
-wItems:: ds MAX_ITEMS * 2 + 1
+wItems:: ds MAX_ITEMS * 3 + 1
 
 wNumKeyItems:: db
 wKeyItems:: ds MAX_KEY_ITEMS + 1
@@ -3019,7 +3014,7 @@ wNumBalls:: db
 wBalls:: ds MAX_BALLS * 2 + 1
 
 wNumPCItems:: db
-wPCItems:: ds MAX_PC_ITEMS * 2 + 1
+wPCItems:: ds MAX_PC_ITEMS * 3 + 1
 
 wPokegearFlags::
 ; bit 0: map
@@ -3030,21 +3025,19 @@ wPokegearFlags::
 	db
 wRadioTuningKnob:: db
 wLastDexMode:: db
-	ds 1
+
 wWhichRegisteredItem:: db
 wRegisteredItem:: db
 
 wPlayerState:: db
 
 wHallOfFameCount:: db
-	ds 1
+
 wTradeFlags:: flag_array NUM_NPC_TRADES
-	ds 1
+
 wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
-
-	ds 13
 
 ; map scene ids
 wPokecenter2FSceneID::                            db
@@ -3445,6 +3438,7 @@ SECTION "16-bit WRAM tables", WRAMX
 ; align this section to $100
 	wram_conversion_table wPokemonIndexTable, MON_TABLE
 	wram_conversion_table wMoveIndexTable, MOVE_TABLE
+	wram_conversion_table wItemIndexTable, ITEM_TABLE
 
 
 SECTION "Battle Tower RAM", WRAMX
