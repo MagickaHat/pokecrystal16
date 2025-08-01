@@ -143,7 +143,7 @@ INCLUDE "engine/gfx/place_graphic.asm"
 SECTION "Effect Commands", ROMX
 
 INCLUDE "engine/battle/effect_commands.asm"
-
+INCLUDE "data/battle/powder_moves.asm"
 
 SECTION "Enemy Trainers", ROMX
 
