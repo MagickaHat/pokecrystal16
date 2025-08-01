@@ -140,8 +140,9 @@ ReceivedThunderBadgeText:
 
 LtSurgeThunderBadgeText:
 	text "Consider this badge"
-	line "proof that you defeated"
-	cont "me. You wear it"
+	line "proof that you"
+	cont "defeated me."
+	cont "You wear it"
 	cont "proudly, hear?"
 	done
 
