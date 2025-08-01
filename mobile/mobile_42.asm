@@ -311,18 +311,11 @@ Function108201:
 
 Function108219: ; unreferenced
 	ld [wCurPartySpecies], a
-	hlcoord 7, 2
-	ld d, $0
-	ld e, ANIM_MON_TRADE
-	predef AnimateFrontpic
+    jp PlayMonCry
 	ret
 
 Function108229:
 	ld [wCurPartySpecies], a
-	hlcoord 7, 2
-	ld d, $0
-	ld e, ANIM_MON_TRADE
-	predef LoadMonAnimation
 	ret
 
 MobileTradeAnim_InitSpeciesName:
@@ -420,8 +413,6 @@ WaitMobileTradeSpriteAnims:
 Function1082db:
 .loop
 	farcall PlaySpriteAnimations
-	farcall SetUpPokeAnim
-	farcall HDMATransferTilemapToWRAMBank3
 	jr nc, .loop
 	ret
 
