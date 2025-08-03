@@ -3136,49 +3136,6 @@ AI_Status:
 	inc de
 	call AIGetEnemyMove
 
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_TOXIC
-	jr z, .poisonimmunity
-	cp EFFECT_POISON
-	jr z, .poisonimmunity
-	cp EFFECT_SLEEP
-	jr z, .typeimmunity
-	cp EFFECT_PARALYZE
-	jr z, .typeimmunity
-
-	ld a, [wEnemyMoveStruct + MOVE_POWER]
-	and a
-	jr z, .checkmove
-
-	jr .typeimmunity
-
-.poisonimmunity
-	ld a, [wBattleMonType1]
-	cp POISON
-	jr z, .immune
-	ld a, [wBattleMonType2]
-	cp POISON
-	jr z, .immune
-
-.typeimmunity
-	push hl
-	push bc
-	push de
-	ld a, 1
-	ldh [hBattleTurn], a
-	callfar BattleCheckTypeMatchup
-	pop de
-	pop bc
-	pop hl
-
-	ld a, [wTypeMatchup]
-	and a
-	jr nz, .checkmove
-
-.immune
-	call AIDiscourageMove
-	jr .checkmove
-
 
 AI_Risky:
 ; Use any move that will KO the target.
