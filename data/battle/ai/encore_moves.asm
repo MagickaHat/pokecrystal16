@@ -10,6 +10,8 @@ EncoreMoves:
 	dw LEECH_SEED
 	dw GROWTH
 	dw POISONPOWDER
+	dw STUN_SPORE
+	dw SLEEP_POWDER
 	dw STRING_SHOT
 	dw MEDITATE
 	dw AGILITY
@@ -27,8 +29,6 @@ EncoreMoves:
 	dw TRIPLE_KICK
 	dw SPIDER_WEB
 	dw MIND_READER
-	dw FLAME_WHEEL
-	dw AEROBLAST
 	dw COTTON_SPORE
-	dw POWDER_SNOW
+	dw SPORE
 	dw -1 ; end

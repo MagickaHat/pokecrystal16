@@ -34,4 +34,6 @@ StallMoves:
 	dw CONVERSION
 	dw SUBSTITUTE
 	dw FLAME_WHEEL
+	dw SOLARBEAM
+	dw SKULL_BASH
 	dw -1 ; end
